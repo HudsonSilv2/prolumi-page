@@ -10,7 +10,6 @@ function App() {
       <Slide />
       <div>
         <Info />
-        {/* < - 3 informações legais com flex e justify, collum-> */}
       </div>
     </div>
   );
