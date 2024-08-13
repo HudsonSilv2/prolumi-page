@@ -12,7 +12,7 @@ export const Header = () => {
         <li className="hidden p-2 sm:flex cursor-pointer hover:text-green-400">Contato</li>
       </ul>
       <div className="flex flex-1 justify-end p-2 sm:hidden">
-        <Menu />
+        <Menu/>
       </div>
     </div>
   );
