@@ -3,17 +3,24 @@ import { Menu } from "./menu";
 
 export const Header = () => {
   return (
-    <div className="p-1">
-      <ul className="flex justify-evenly text-center pt-3 sm:pt-0 items-center font-semibold">
-        <Logo />
-        <li className="hidden p-2 sm:flex cursor-pointer hover:text-green-400">Sobre</li>
-        <li className="hidden p-2 sm:flex cursor-pointer hover:text-green-400">Parceiros</li>
-        <li className="hidden p-2 sm:flex cursor-pointer hover:text-green-400">Projetos</li>
-        <li className="hidden p-2 sm:flex cursor-pointer hover:text-green-400">Contato</li>
-      </ul>
-      <div className="flex flex-1 justify-end p-2 sm:hidden">
-        <Menu/>
+    <header className="p-1 h-20 flex items-center justify-around bg-gray-700 text-white fixed top-0 left-0 w-full z-10">
+      <Logo />
+      <nav className="hidden sm:flex gap-6 font-semibold a">
+        {["Sobre", "Parceiros", "Projetos", "Contato"].map((item) => (
+          <a
+            key={item}
+            href={`#${item.toLowerCase()}`}
+            className="p-2 hover:text-green-400 cursor-pointer transition duration-300 ease-in-out"
+          >
+            {item}
+          </a>
+        ))}
+
+        
+      </nav>
+      <div className="sm:hidden">
+        <Menu />
       </div>
-    </div>
+    </header>
   );
 };

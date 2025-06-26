@@ -1,0 +1,55 @@
+.App {
+font-family: Arial, sans-serif;
+margin: 20px;
+padding: 10px;
+}
+
+h1 {
+text-align: center;
+color: #2c3e50;
+}
+
+h2 {
+color: #2980b9;
+}
+
+.about, .partners, .projects, .contact {
+margin-bottom: 40px;
+}
+
+.project-gallery {
+display: flex;
+gap: 20px;
+}
+
+.project-item img {
+width: 100%;
+max-width: 300px;
+border-radius: 8px;
+}
+
+form {
+display: flex;
+flex-direction: column;
+}
+
+label {
+margin-top: 10px;
+}
+
+input, textarea {
+padding: 8px;
+margin-bottom: 10px;
+}
+
+button {
+padding: 10px;
+background-color: #3498db;
+color: white;
+border: none;
+cursor: pointer;
+}
+
+button:hover {
+background-color: #2980b9;
+}

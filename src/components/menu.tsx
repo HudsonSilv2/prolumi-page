@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export const Menu = () => {
-  const [menu, setMenu] = useState(false);
+  const [menu, setMenu] = useState(false); 
 
   const openMenu = () => {
     setMenu(!menu);
@@ -34,6 +34,7 @@ export const Menu = () => {
             stroke-width="1.5"
             stroke="currentColor"
             class="size-9"
+
             color='#444'
           >
             <path

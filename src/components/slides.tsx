@@ -9,22 +9,22 @@ import image4 from '../images/image4.jpg'
 import image5 from '../images/image5.jpg'
 import image6 from '../images/image6.jpg'
 
-const images = [image1, image2, image3, image4, image5, image6, image2];
+const images = [image1, image2, image3, image4, image5, image6, image2, image3, image4, image5, image6, image1, image2, image3, image4, image5, image6];
+
 
 export const Slide = () => {
-    const carousel = useRef();
-    const [width, setWidth] = useState(0)
+    const carousel = useRef<HTMLDivElement>(null);
+    const [width, setWidth] = useState(0);
 
     useEffect(() => {
-        console.log(carousel.current?.scrollWidth, carousel.current?.offsetWidth)
-        setWidth(carousel.current?.scrollWidth - carousel.current?.offsetWidth)
-    }, [])
-
-
-
+        if (carousel.current) {
+            const scrollWidth = carousel.current.scrollWidth || 0;
+            const offsetWidth = carousel.current.offsetWidth || 0;
+            setWidth(scrollWidth - offsetWidth);
+        }
+    }, []);
     return (
         <div className="App">
-
             <motion.div ref={carousel} className="carousel" whileTap={{ cursor: "grabbing" }}>
                 <motion.div
                     className="inner"
@@ -34,16 +34,13 @@ export const Slide = () => {
                     animate={{ x: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-
-                    {images.map(image => (
-                        <motion.div className="item" key={image}>
-                            <img className="" src={image} alt="Desc img" />
+                    {images.map((image, index) => (
+                        <motion.div className="item" key={index}>
+                            <img className="carousel-img" src={image} alt="Desc img" />
                         </motion.div>
                     ))}
-
                 </motion.div>
             </motion.div>
-
         </div>
     );
 }
