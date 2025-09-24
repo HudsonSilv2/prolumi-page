@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+	--bg: #f7fbfd;
+	--surface: #ffffff;
+	--text: #0f172a;
+	--muted: #94a3b8;
+	--brand: #06b6d4;
+	--brand-dark: #0b3d91;
+	--accent: #ffb703;
+}
+
+@layer base {
+	html, body, #root {
+		height: 100%;
+	}
+
+	body {
+		background-color: var(--bg);
+		color: var(--text);
+		font-family: theme('fontFamily.sans');
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	a { color: var(--brand); }
+	h1,h2,h3,h4 { color: var(--brand-dark); }
+}

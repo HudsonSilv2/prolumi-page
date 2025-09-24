@@ -17,15 +17,22 @@ export const Slide = () => {
     const [width, setWidth] = useState(0);
 
     useEffect(() => {
-        if (carousel.current) {
-            const scrollWidth = carousel.current.scrollWidth || 0;
-            const offsetWidth = carousel.current.offsetWidth || 0;
-            setWidth(scrollWidth - offsetWidth);
-        }
+        const calc = () => {
+            if (carousel.current) {
+                const scrollWidth = carousel.current.scrollWidth || 0;
+                const offsetWidth = carousel.current.offsetWidth || 0;
+                setWidth(scrollWidth - offsetWidth);
+            }
+        };
+
+        calc();
+        window.addEventListener('resize', calc);
+        return () => window.removeEventListener('resize', calc);
     }, []);
+
     return (
-        <div className="App">
-            <motion.div ref={carousel} className="carousel" whileTap={{ cursor: "grabbing" }}>
+        <section className="App" aria-label="Galeria de imagens">
+            <motion.div ref={carousel} className="carousel" whileTap={{ cursor: "grabbing" }} role="region">
                 <motion.div
                     className="inner"
                     drag="x"
@@ -35,12 +42,12 @@ export const Slide = () => {
                     transition={{ duration: 0.8 }}
                 >
                     {images.map((image, index) => (
-                        <motion.div className="item" key={index}>
-                            <img className="carousel-img" src={image} alt="Desc img" />
+                        <motion.div className="item" key={index} tabIndex={0} aria-hidden={false}>
+                            <img loading="lazy" className="carousel-img" src={image} alt={`Imagem ${index + 1}`} />
                         </motion.div>
                     ))}
                 </motion.div>
             </motion.div>
-        </div>
+        </section>
     );
 }

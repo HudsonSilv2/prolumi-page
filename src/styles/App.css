@@ -1,55 +1,16 @@
 .App {
-font-family: Arial, sans-serif;
-margin: 20px;
-padding: 10px;
+	@apply max-w-6xl mx-auto p-6;
 }
 
-h1 {
-text-align: center;
-color: #2c3e50;
-}
+h1 { @apply text-center text-3xl font-extrabold text-[var(--brand-dark)]; }
+h2 { @apply text-2xl font-semibold text-[var(--brand)]; }
 
-h2 {
-color: #2980b9;
-}
+.about, .partners, .projects, .contact { @apply mb-10; }
 
-.about, .partners, .projects, .contact {
-margin-bottom: 40px;
-}
+.project-gallery { @apply flex gap-5 flex-wrap; }
+.project-item img { @apply w-full max-w-xs rounded-lg; }
 
-.project-gallery {
-display: flex;
-gap: 20px;
-}
-
-.project-item img {
-width: 100%;
-max-width: 300px;
-border-radius: 8px;
-}
-
-form {
-display: flex;
-flex-direction: column;
-}
-
-label {
-margin-top: 10px;
-}
-
-input, textarea {
-padding: 8px;
-margin-bottom: 10px;
-}
-
-button {
-padding: 10px;
-background-color: #3498db;
-color: white;
-border: none;
-cursor: pointer;
-}
-
-button:hover {
-background-color: #2980b9;
-}
+form { @apply flex flex-col gap-3; }
+label { @apply text-sm text-[var(--muted)]; }
+input, textarea { @apply p-3 border border-slate-200 rounded-md; }
+button { @apply px-4 py-2 bg-[--brand] text-white rounded-md hover:bg-[--brand-dark] transition; }

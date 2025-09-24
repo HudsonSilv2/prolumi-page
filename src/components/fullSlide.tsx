@@ -22,7 +22,7 @@ export const Slide = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-[700px] overflow-hidden flex justify-center items-center bg-black">
+    <div className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden flex justify-center items-center bg-black">
       <AnimatePresence>
         <motion.img
           key={current}
@@ -37,13 +37,14 @@ export const Slide = () => {
       </AnimatePresence>
 
       {/* Indicadores */}
-      <div className="absolute bottom-5 flex gap-2">
+      <div className="absolute bottom-5 flex gap-2" role="tablist" aria-label="Indicadores do carrossel">
         {images.map((_, index) => (
-          <div
+          <button
             key={index}
-            className={`w-3 h-3 rounded-full ${
-              index === current ? "bg-white" : "bg-gray-500"
-            }`}
+            aria-current={index === current}
+            aria-label={`Ir para slide ${index + 1}`}
+            onClick={() => setCurrent(index)}
+            className={`w-3 h-3 rounded-full ${index === current ? "bg-white" : "bg-gray-500"}`}
           />
         ))}
       </div>

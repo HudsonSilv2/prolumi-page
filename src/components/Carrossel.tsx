@@ -16,7 +16,7 @@ export const Carrosel = () => {
     
     return (
         <div>
-            <button className="bg-gray-200 p-3 rounded-md m-2" onClick={handleClick}>Alert!</button>
+            <button aria-label="Abrir alerta" className="bg-[--brand] text-white p-3 rounded-md m-2 hover:bg-[--brand-dark] transition" onClick={handleClick}>Alert!</button>
         </div>
     );
 }

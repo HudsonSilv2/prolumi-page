@@ -36,6 +36,7 @@ export const Info = () => {
         if (!value) {
           return "Você precisa escrever algo!";
         }
+        return null;
       },
     });
   };
@@ -65,17 +66,18 @@ export const Info = () => {
   ];
 
   return (
-    <div className="bg-gray-600 min-h-screen flex items-center justify-center p-6">
+    <div className="min-h-screen flex items-center justify-center p-6 bg-[--bg]">
       <section className="flex flex-col xl:flex-row gap-6">
         {cards.map((card, index) => (
           <div
             key={index}
-            className="flex flex-col justify-between text-center bg-white h-80 w-80 rounded-3xl p-4 shadow-lg"
+            className="flex flex-col justify-between text-center bg-white h-80 w-80 rounded-2xl p-6 shadow-md"
           >
-            <h1 className="font-bold text-3xl">{card.title}</h1>
-            <p className="text-left text-sm my-4">{card.description}</p>
+            <h1 className="font-bold text-2xl text-[var(--brand-dark)]">{card.title}</h1>
+            <p className="text-left text-sm my-4 text-[var(--muted)] leading-relaxed">{card.description}</p>
             <button
-              className="mt-auto p-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400 transition"
+              aria-label={`${card.buttonText} - ${card.title}`}
+              className="mt-auto p-2 bg-[--brand] text-white rounded-md hover:bg-[--brand-dark] transition"
               onClick={card.onClick}
             >
               {card.buttonText}

@@ -6,7 +6,7 @@ export const Logo = () => {
       <img
         src={Logoimg}
         alt="Logo Prolumi"
-        className="h-32 w-32 object-contain"
+  className="h-16 w-16 object-contain rounded-md bg-white/60 p-1 shadow-sm"
       />
     </a>
   );
