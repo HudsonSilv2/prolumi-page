@@ -1,31 +1,26 @@
-'use strict';
-
-import { Header } from "./components/header";
-import { Info } from "./components/info";
-import { Parce } from "./components/parce";
-import { Slide } from "./components/slides";
-import View3D from "./components/view3d";
+import { Header } from './components/header';
+import { HeroSlideShow } from './components/HeroSlideShow';
+import { About } from './components/About';
+import { InfoCards } from './components/InfoCards';
+import { Partners } from './components/Partners';
+import { Projects } from './components/Projects';
+import { Contact } from './components/Contact';
+import View3D from './components/View3D';
+import { Footer } from './components/Footer';
 
 function App() {
   return (
-    <div className="">
-      {/* Header Component */}
+    <>
       <Header />
-
-      {/* Slide Component */}
-      <Slide />
-
-      {/* Info Component */}
-      <div className="p-0 m-0">
-        <Info />
-      </div>
-
-      {/* Parce Component */}
-      <Parce />
-
-      {/* Home Component */}
+      <HeroSlideShow />
+      <About />
+      <InfoCards />
+      <Partners />
+      <Projects />
+      <Contact />
       <View3D />
-    </div>
+      <Footer />
+    </>
   );
 }
 
